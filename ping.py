@@ -11,7 +11,7 @@ def keep_alive():
     while True:
         try:
             # Get your Render app URL from environment variable
-            app_url = os.getenv('RENDER_APP_URL', 'https://your-app.onrender.com')
+            app_url = os.getenv('RENDER_APP_URL', 'https://yadav-osint.onrender.com')
             if app_url.startswith('https://'):
                 response = requests.get(f"{app_url}/ping")
                 print(f"✅ Pinged {app_url} - Status: {response.status_code}")
