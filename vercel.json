@@ -1,26 +1,22 @@
 {
   "version": 2,
-  "functions": {
-    "api/bot.py": {
-      "maxDuration": 30
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "requirements.txt",
+      "use": "@vercel/python"
     }
-  },
+  ],
   "routes": [
     {
-      "src": "/health",
-      "dest": "/api/bot.py"
-    },
-    {
-      "src": "/info", 
-      "dest": "/api/bot.py"
-    },
-    {
-      "src": "/setup-webhook",
-      "dest": "/api/bot.py"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/api/bot.py"
+      "dest": "/api/index.py"
     }
-  ]
+  ],
+  "env": {
+    "PYTHONPATH": "/var/task:/var/task/api"
+  }
 }
